@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', 'HomeController@home');
+Route::get('/', 'HomeController@home')->name('home');
 Route::get('/articles/{articleSlug}' , 'ArticleController@single');
-Route::get('/about', 'HomeController@about');
-Route::get('/contact/asfaf/afasfal', 'HomeController@contact')->name('contact');
+Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/contact', 'HomeController@contact')->name('contact');
 
 Route::prefix('admin')->namespace('Admin')->middleware('auth')->group(function() {
     Route::resource('articles' , 'ArticleController')->except(['show']);
